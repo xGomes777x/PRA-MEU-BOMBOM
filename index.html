@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Você é Tudo Para Mim</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      color: #333;
+      background: linear-gradient(to bottom right, #ffe4e1, #fff0f5);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      padding: 0 10px;
+    }
+
+    img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 182, 193, 0.6);
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 1em;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff1493;
+    }
+
+    #mensagem {
+      display: none;
+      margin-top: 30px;
+      padding: 0 10px;
+    }
+
+    .versiculo {
+      font-style: italic;
+      color: #8b0000;
+      margin-top: 10px;
+      font-size: 1em;
+    }
+
+    #textoDigitado {
+      font-size: 1.2em;
+      margin-top: 15px;
+      color: #d6336c;
+      min-height: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Música de fundo -->
+  <audio autoplay loop>
+    <source src="musica.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <h1>Você é meu presente de Deus 🎁</h1>
+  <img src="img/4.jpg" alt="Nossa Foto">
+  <button onclick="mostrarMensagem()">Clique aqui</button>
+
+  <div id="mensagem">
+    <h2>Você é tudo para mim ❤️</h2>
+    <img src="img/2.jpg" alt="Outra Foto">
+    <div id="textoDigitado"></div>
+    <p class="versiculo">“O meu amado é meu, e eu sou dele.” – Cânticos 2:16</p>
+    <button onclick="compartilhar()">Compartilhar no WhatsApp</button>
+  </div>
+
+  <script>
+    function mostrarMensagem() {
+      document.getElementById('mensagem').style.display = 'block';
+      digitarTexto("Desde que te conheci, meu mundo ficou mais bonito. Você é tudo para mim.");
+    }
+
+    function digitarTexto(texto) {
+      const elemento = document.getElementById('textoDigitado');
+      let i = 0;
+      elemento.innerHTML = "";
+      const intervalo = setInterval(() => {
+        if (i < texto.length) {
+          elemento.innerHTML += texto.charAt(i);
+          i++;
+        } else {
+          clearInterval(intervalo);
+        }
+      }, 50);
+    }
+
+    function compartilhar() {
+      const mensagem = encodeURIComponent("Olha esse site que fiz pra você 💖 https://xGomes777x.github.io/PRO-MEU-BOMBOM/");
+      window.open(`https://wa.me/?text=${mensagem}`, '_blank');
+    }
+  </script>
+
+</body>
+</html>
